@@ -1,0 +1,15 @@
+version: '3'
+services:
+  metrics:
+    build:
+      context: .
+      dockerfile: Dockerfile 
+    ports:
+      - "8080:8080" 
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090" 
